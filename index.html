@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Nandini 💗</title>
+<title>Happy Birthday My Nandini 💗</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,6 +78,14 @@
   }
   .dot-nav a{font-size:18px; text-decoration:none; opacity:0.7; transition:transform .2s, opacity .2s;}
   .dot-nav a:hover, .dot-nav a:focus-visible{opacity:1; transform:scale(1.25);}
+ .mute-btn{
+  position:fixed; top:14px; right:16px; z-index:10;
+  width:40px; height:40px; border-radius:50%;
+  background:var(--bunny); border:2px solid var(--sage);
+  font-size:16px; cursor:pointer;
+  box-shadow:0 4px 14px rgba(185,136,102,0.22);
+  display:flex; align-items:center; justify-content:center;
+}
  
   /* ---------- hero ---------- */
   .hero{padding-top:100px; min-height:92vh; display:flex; flex-direction:column; align-items:center; justify-content:center;}
@@ -222,14 +230,40 @@
   .polaroid .caption{font-family:'Caveat', cursive; font-size:15px; text-align:center; margin-top:8px; color:var(--plum);}
  
   /* ---------- surprise button ---------- */
-  .surprise-wrap{text-align:center; padding:20px 24px 50px;}
+ .surprise-wrap{text-align:center; padding:20px 24px 50px;}
   .surprise-btn{
-    font-family:'Fredoka', sans-serif; font-size:16px; font-weight:600;
-    background:var(--rose-deep); color:white; border:none; padding:14px 28px;
-    border-radius:999px; cursor:pointer; box-shadow:0 8px 20px rgba(185,136,102,0.35);
+    font-family:'Fredoka', sans-serif; font-size:17px; font-weight:600;
+    background:linear-gradient(135deg, var(--rose-deep), var(--rose));
+    color:white; border:none; padding:16px 32px;
+    border-radius:999px; cursor:pointer;
+    box-shadow:0 8px 24px rgba(225,90,121,0.4);
     transition:transform .15s;
+    animation:pulseGlow 2.4s ease-in-out infinite;
   }
-  .surprise-btn:hover, .surprise-btn:focus-visible{transform:translateY(-2px);}
+  .surprise-btn:hover, .surprise-btn:focus-visible{transform:translateY(-3px) scale(1.03);}
+  @keyframes pulseGlow{
+    0%,100%{box-shadow:0 8px 24px rgba(225,90,121,0.4);}
+    50%{box-shadow:0 8px 32px rgba(225,90,121,0.7);}
+  }
+  .surprise-modal{
+    position:fixed; inset:0; z-index:200;
+    background:rgba(91,68,56,0.55); backdrop-filter:blur(4px);
+    display:none; align-items:center; justify-content:center; padding:24px;
+  }
+  .surprise-modal.open{display:flex;}
+  .surprise-modal-card{
+    background:var(--bunny); border-radius:24px; padding:28px 22px 22px; max-width:420px; width:100%;
+    text-align:center; box-shadow:0 20px 50px rgba(0,0,0,0.3); position:relative;
+    animation:popIn .4s ease; max-height:85vh; overflow-y:auto;
+  }
+  @keyframes popIn{ from{transform:scale(.85); opacity:0;} to{transform:scale(1); opacity:1;} }
+  .surprise-modal-card h3{color:var(--rose-deep); font-family:'Fredoka',sans-serif; margin-bottom:4px; font-size:22px;}
+  .surprise-modal-card .sub{font-size:13px; opacity:0.7; margin-bottom:16px;}
+  .surprise-photo-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:10px;}
+  .surprise-photo-grid img{width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:12px; box-shadow:0 4px 10px rgba(185,136,102,0.25);}
+  .surprise-close{
+    position:absolute; top:12px; right:14px; background:none; border:none; font-size:22px; cursor:pointer; color:var(--rose-deep);
+  }
  
   footer{
     text-align:center; padding:10px 24px 60px; font-family:'Caveat', cursive; font-size:20px;
@@ -286,6 +320,7 @@
 </style>
 </head>
 <body>
+ <audio id="bgMusic" src="Perfect_Two.mp3" loop preload="auto"></audio>
  
 <!-- reusable bear + bunny mascot, drawn as original artwork (not a reproduction of any existing comic) -->
 <svg class="mascot-defs" aria-hidden="true">
@@ -335,7 +370,9 @@
 </div>
  
 <div id="mainContent" style="display:none;">
- 
+
+<button id="muteBtn" class="mute-btn" aria-label="Mute music" title="Mute music">🔊</button>
+
 <nav class="dot-nav" aria-label="Section navigation">
   <a href="#hero" title="Home">🏠</a>
   <a href="#story" title="Our Story">📖</a>
@@ -379,9 +416,11 @@
     <div class="timeline-item">
       <div class="date">5th April 2025</div>
      <p>Concert night at Invento. ✨ Our college ground was loud, alive, and overflowing with music, but my favorite memory isn't the stage—it's you. You were the one who pulled me in for a picture before we drifted apart, you to the girls' section and me to the boys'. 🤍<br><br>And then <em>Raabta</em> began to play. Somehow, even from opposite sides of the crowd, all I wanted was to be standing next to you. Turns out, you felt the exact same way. 🥹❤️<br><br>The moment the song ended, we called each other without a second thought, as if our hearts had already found their way back together before we did. From that night on, <em>Raabta</em> stopped being just another song—it quietly became ours. 🎶✨<br><br>Now, every time we sing it together, I'm taken back to that college ground, to the night we realized that no matter how big the crowd was, we'd always be looking for each other first. 💛</p>
+      </div>
     <div class="timeline-item">
       <div class="date">12th October 2025</div>
       <p>Three words. They didn't surprise me—not because they meant any less, but because we'd both known, long before that midnight text, what our hearts had been quietly saying. 🤍 At exactly 12:17 a.m., your <em>"I love you"</em> on WhatsApp simply gave a name to a feeling we'd already been living. ✨<br><br>I was scared—not of loving you, but of my past, and of the future we knew might never be ours because of our castes. Even then, we chose each other. We chose to love fully for as long as life would let us, believing that if one day we had to part, we'd leave with the most beautiful memories, carrying a piece of each other for the rest of our lives. 🥹❤️<br><br>You never asked me to say it back immediately. You just smiled and told me to say it when I felt safe, when it came from my whole heart. That kind of love is rare—it never rushed, never demanded, it simply waited. 🌼<br><br>And when I finally said, <em>"I love you,"</em> it wasn't just a reply. It was my heart finding its way home to the girl who loved me bravely first. ♾️💛</p>
+      </div>
     <div class="timeline-item">
       <div class="date">18th November 2025</div>
       <p>It wasn't the perfect day I'd imagined. Nothing really went according to plan, and almost everything I had hoped for fell apart. But maybe love was never waiting for the perfect moment anyway. 🤍<br><br>After weeks of carrying those words in my heart, I finally looked at you and said, "I love you." Not because everything was perfect, but because my feelings were. 🥹❤️<br><br>The day may not be my favorite memory, but the confession always will be. Because no matter how messy the moment was, the truth I gave you was the most certain thing I'd ever known. ✨<br><br>Looking back now, I don't remember the plans that failed. I only remember finally telling the girl who had loved me so patiently that I loved her too. And somehow, that was enough. 🌼♾️</p>
@@ -491,7 +530,23 @@
 </section>
  
 <div class="surprise-wrap">
-  <button class="surprise-btn" id="surpriseBtn">Tap for a surprise 🎉</button>
+<button class="surprise-btn" id="surpriseBtn">Tap for a surprise 🎉</button>
+
+  <div class="surprise-modal" id="surpriseModal">
+    <div class="surprise-modal-card">
+      <button class="surprise-close" id="surpriseClose" aria-label="Close">✕</button>
+      <h3>One More Surprise 💗</h3>
+      <p class="sub">for the girl who makes everything beautiful</p>
+      <div class="surprise-photo-grid">
+        <img src="photo1.jpg" alt="">
+        <img src="photo2.jpg" alt="">
+        <img src="photo3.jpg" alt="">
+        <img src="photo4.jpg" alt="">
+        <img src="photo5.jpg" alt="">
+      </div>
+    </div>
+  </div>
+
 </div>
  
 <footer>
@@ -512,6 +567,7 @@
     if(val === SITE_PASSWORD){
       document.getElementById('lockScreen').style.display = 'none';
       document.getElementById('mainContent').style.display = 'block';
+     document.getElementById('bgMusic').play();
     } else {
       const card = document.getElementById('lockCard');
       card.classList.add('shake');
@@ -608,7 +664,17 @@
       document.body.appendChild(piece);
       setTimeout(()=>piece.remove(), 3600);
     }
+   document.getElementById('surpriseModal').classList.add('open');
   });
+ const muteBtn = document.getElementById('muteBtn');
+const bgMusic = document.getElementById('bgMusic');
+muteBtn.addEventListener('click', ()=>{
+  bgMusic.muted = !bgMusic.muted;
+  muteBtn.textContent = bgMusic.muted ? '🔇' : '🔊';
+});
+ const surpriseModal = document.getElementById('surpriseModal');
+document.getElementById('surpriseClose').addEventListener('click', ()=> surpriseModal.classList.remove('open'));
+surpriseModal.addEventListener('click', (e)=>{ if(e.target===surpriseModal) surpriseModal.classList.remove('open'); });
 </script>
  
 </body>
