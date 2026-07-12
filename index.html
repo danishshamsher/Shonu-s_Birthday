@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,43 +8,46 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
-
+ 
 <!--
   HOW TO EDIT THIS PAGE (read me!)
-  1. LOVE LETTER: find id="letter-text" below and replace the placeholder paragraph with your own words.
-  2. PHOTOS: find class="photo-placeholder" — replace the emoji div's content with <img src="yourphoto.jpg" alt="..."> (put the image file in the same folder as this html file).
-  3. SONG LINKS: find class="song-link" — change href="#" to your Spotify/YouTube link for Yellow and Raabta.
-  4. MORE MEMORIES: copy a ".timeline-item" block inside id="timeline" and edit the date/text to add new milestones.
-  5. SIGN-OFF: find "Your Name" near the bottom and replace with your name.
+  1. LOVE LETTER: find id="letter-text" below and replace with your own words (or keep it — it's already written).
+  2. SIGN-OFF: find "Your Name" near the letter and reasons section and replace with your name/nickname.
+  3. PHOTOS: find class="photo-placeholder" — replace the emoji div's content with <img src="yourphoto.jpg" alt="..."> (put the image file in the same folder as this html file, same folder as index.html on GitHub).
+  4. SONG LINKS: find class="song-link" — change href="#" to your Spotify/YouTube link for Yellow and Raabta.
+  5. MORE MEMORIES: copy a ".timeline-item" block inside id="timeline" and edit the date/text to add new milestones.
+  6. MORE REASONS: copy a ".flip-card" block inside id="reasonsGrid" and edit the front number + back text.
+  7. PASSWORD: find SITE_PASSWORD in the script near the bottom to change it.
 -->
-
+ 
 <style>
   :root{
-    --cream:#FFF8F0;
-    --blush:#FFD9E8;
-    --butter:#FFE9A8;
-    --lavender:#EBDBFF;
-    --rose:#F0567F;
-    --rose-deep:#D93B65;
-    --plum:#5B3A4B;
+    --cream:#FFF7EC;
+    --blush:#FFD9E3;
+    --butter:#FFEEB8;
+    --sage:#DCEAD6;
+    --rose:#F0728F;
+    --rose-deep:#E15A79;
+    --cocoa:#B98866;
+    --cocoa-light:#EFD9BE;
+    --bunny:#FFFDF8;
+    --plum:#5B4438;
   }
-
+ 
   *{box-sizing:border-box; margin:0; padding:0;}
-
   html{scroll-behavior:smooth;}
-
+ 
   body{
     font-family:'Quicksand', sans-serif;
-    background:linear-gradient(180deg, var(--cream) 0%, var(--blush) 35%, var(--lavender) 70%, var(--cream) 100%);
+    background:linear-gradient(180deg, var(--cream) 0%, var(--blush) 30%, var(--sage) 65%, var(--cream) 100%);
     color:var(--plum);
     overflow-x:hidden;
     position:relative;
   }
-
+ 
   h1,h2{font-family:'Fredoka', sans-serif; font-weight:600;}
-
   a{color:inherit;}
-
+ 
   section{
     max-width:640px;
     margin:0 auto;
@@ -52,118 +55,109 @@
     text-align:center;
     position:relative;
   }
-
+ 
+  /* ---------- mascot symbol (reused everywhere) ---------- */
+  .mascot-defs{position:absolute; width:0; height:0; overflow:hidden;}
+  .mascot{display:block; margin:0 auto;}
+ 
   /* ---------- floating ambient hearts ---------- */
-  .floating-hearts{
-    position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden;
-  }
-  .fh{
-    position:absolute; bottom:-40px; font-size:20px; opacity:0.55;
-    animation:floatUp linear infinite;
-  }
+  .floating-hearts{position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden;}
+  .fh{position:absolute; bottom:-40px; font-size:20px; opacity:0.55; animation:floatUp linear infinite;}
   @keyframes floatUp{
     0%{transform:translateY(0) rotate(0deg); opacity:0;}
     10%{opacity:0.6;}
     100%{transform:translateY(-110vh) rotate(360deg); opacity:0;}
   }
-
+ 
   /* ---------- nav ---------- */
   .dot-nav{
     position:fixed; top:14px; left:50%; transform:translateX(-50%);
     display:flex; gap:10px; z-index:10;
-    background:rgba(255,255,255,0.6); backdrop-filter:blur(6px);
-    padding:8px 14px; border-radius:999px; box-shadow:0 4px 16px rgba(217,59,101,0.12);
+    background:rgba(255,253,248,0.7); backdrop-filter:blur(6px);
+    padding:8px 14px; border-radius:999px; box-shadow:0 4px 16px rgba(185,136,102,0.18);
   }
-  .dot-nav a{
-    font-size:18px; text-decoration:none; opacity:0.7; transition:transform .2s, opacity .2s;
-  }
+  .dot-nav a{font-size:18px; text-decoration:none; opacity:0.7; transition:transform .2s, opacity .2s;}
   .dot-nav a:hover, .dot-nav a:focus-visible{opacity:1; transform:scale(1.25);}
-
+ 
   /* ---------- hero ---------- */
-  .hero{padding-top:110px; min-height:92vh; display:flex; flex-direction:column; align-items:center; justify-content:center;}
-
+  .hero{padding-top:100px; min-height:92vh; display:flex; flex-direction:column; align-items:center; justify-content:center;}
+ 
   .stamp{
-    width:132px; height:132px; border-radius:50%;
+    width:136px; height:136px; border-radius:50%;
     border:3px dashed var(--rose-deep);
     display:flex; flex-direction:column; align-items:center; justify-content:center;
     color:var(--rose-deep); font-family:'Fredoka', sans-serif; font-weight:600;
-    transform:rotate(-9deg); mix-blend-mode:multiply;
-    margin-bottom:22px; font-size:11px; letter-spacing:1px; line-height:1.4;
-    background:rgba(255,255,255,0.3);
+    transform:rotate(-9deg);
+    margin-bottom:18px; font-size:11px; letter-spacing:1px; line-height:1.4;
+    background:rgba(255,253,248,0.55);
   }
   .stamp .heart{font-size:20px; margin:2px 0;}
   .stamp .est{font-size:9px; opacity:0.85;}
-
+ 
   .script-name{
     font-family:'Caveat', cursive; font-weight:700;
     font-size:clamp(48px, 14vw, 84px);
     color:var(--rose-deep);
     line-height:1;
   }
-
-  .tagline{
-    margin-top:10px; font-size:15px; max-width:340px; opacity:0.85;
-  }
-
-  .hero-sub{
-    margin-top:26px; font-family:'Fredoka', sans-serif; font-size:clamp(20px,5vw,28px);
-    color:var(--plum);
-  }
-
-  .countdown{
-    display:flex; gap:12px; margin-top:30px;
-  }
+  .tagline{margin-top:10px; font-size:15px; max-width:340px; opacity:0.85;}
+  .hero-sub{margin-top:22px; font-family:'Fredoka', sans-serif; font-size:clamp(20px,5vw,28px); color:var(--plum);}
+ 
+  .countdown{display:flex; gap:12px; margin-top:28px;}
   .cbox{
-    background:white; border-radius:16px; padding:14px 10px; min-width:64px;
-    box-shadow:0 6px 18px rgba(217,59,101,0.15);
+    background:var(--bunny); border-radius:16px; padding:14px 10px; min-width:64px;
+    box-shadow:0 6px 18px rgba(185,136,102,0.22);
+    border:2px solid var(--sage);
   }
   .cbox .num{font-family:'Fredoka',sans-serif; font-size:26px; color:var(--rose-deep); font-weight:600;}
   .cbox .lbl{font-size:11px; text-transform:uppercase; letter-spacing:0.6px; opacity:0.7;}
-
-  .birthday-live{
-    margin-top:28px; font-family:'Caveat', cursive; font-size:32px; color:var(--rose-deep);
-  }
-
+ 
+  .birthday-live{margin-top:26px; font-family:'Caveat', cursive; font-size:32px; color:var(--rose-deep);}
+ 
+  .hero-mascot{width:min(220px,60vw); height:auto; margin-top:30px; filter:drop-shadow(0 10px 16px rgba(185,136,102,0.25));}
+ 
   /* ---------- headings ---------- */
-  section h2{
-    font-size:clamp(24px,6vw,32px); margin-bottom:34px; color:var(--rose-deep);
+  section h2{font-size:clamp(24px,6vw,32px); margin-bottom:8px; color:var(--rose-deep);}
+  .section-sub{font-size:14px; opacity:0.7; margin-bottom:30px; font-family:'Quicksand',sans-serif;}
+ 
+  /* ---------- washi tape ---------- */
+  .tape{
+    position:absolute; top:-10px; left:50%; transform:translateX(-50%) rotate(-3deg);
+    width:64px; height:22px; background:repeating-linear-gradient(45deg, var(--butter), var(--butter) 6px, #FFE39A 6px, #FFE39A 12px);
+    opacity:0.85; border-radius:2px; box-shadow:0 2px 4px rgba(0,0,0,0.08);
   }
-
+ 
   /* ---------- timeline ---------- */
-  .timeline{
-    position:relative; text-align:left;
-    padding-left:28px;
-  }
+  .timeline{position:relative; text-align:left; padding-left:28px;}
   .timeline::before{
     content:""; position:absolute; left:9px; top:6px; bottom:6px; width:2px;
     background:repeating-linear-gradient(to bottom, var(--rose) 0 8px, transparent 8px 16px);
   }
   .timeline-item{
-    position:relative; margin-bottom:26px; background:white; border-radius:16px;
-    padding:16px 18px; box-shadow:0 6px 16px rgba(217,59,101,0.10);
+    position:relative; margin-bottom:30px; background:var(--bunny); border-radius:18px;
+    padding:20px 20px 18px; box-shadow:0 6px 16px rgba(185,136,102,0.15);
   }
-  .timeline-item::before{
-    content:"♥"; position:absolute; left:-28px; top:16px; color:var(--rose-deep); font-size:14px;
-  }
+  .timeline-item::before{content:"🐾"; position:absolute; left:-30px; top:18px; font-size:14px;}
   .timeline-item .date{
-    font-family:'Fredoka', sans-serif; font-size:13px; color:var(--rose-deep); font-weight:600;
-    letter-spacing:0.3px;
+    display:inline-block; font-family:'Fredoka', sans-serif; font-size:13px; color:white; font-weight:600;
+    letter-spacing:0.3px; background:var(--rose-deep); padding:4px 12px; border-radius:999px; margin-bottom:10px;
   }
-  .timeline-item p{margin-top:6px; font-size:15px; line-height:1.45;}
+  .timeline-item p{margin-top:2px; font-size:15px; line-height:1.65;}
   .timeline-item.more{
     border:2px dashed var(--rose); background:transparent; box-shadow:none;
     text-align:center; font-family:'Caveat', cursive; font-size:22px; color:var(--rose-deep);
+    padding:16px;
   }
   .timeline-item.more::before{content:"";}
-
+ 
   /* ---------- songs ---------- */
   .song-cards{display:flex; flex-direction:column; gap:16px;}
   .song-card{
-    border-radius:18px; padding:20px; text-align:left; position:relative; overflow:hidden;
-    box-shadow:0 6px 18px rgba(217,59,101,0.12);
+    border-radius:20px; padding:20px; text-align:left; position:relative; overflow:hidden;
+    box-shadow:0 6px 18px rgba(185,136,102,0.18); border:2px solid var(--bunny);
   }
-  .song-card.yellow{background:linear-gradient(135deg, var(--butter), #fff);}
-  .song-card.raabta{background:linear-gradient(135deg, var(--blush), #fff);}
+  .song-card.yellow{background:linear-gradient(135deg, var(--butter), var(--bunny));}
+  .song-card.raabta{background:linear-gradient(135deg, var(--blush), var(--bunny));}
   .song-card .title{font-family:'Fredoka',sans-serif; font-size:19px; font-weight:600;}
   .song-card .artist{font-size:13px; opacity:0.75; margin-bottom:8px;}
   .song-card .note{font-size:14px; margin-bottom:12px;}
@@ -171,82 +165,93 @@
     display:inline-block; font-size:13px; font-weight:600; text-decoration:none;
     background:var(--rose-deep); color:white; padding:7px 16px; border-radius:999px;
   }
-
+ 
+  /* ---------- 12 reasons flip cards ---------- */
+  .reasons-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:12px;}
+  @media (max-width:480px){ .reasons-grid{grid-template-columns:repeat(2, 1fr);} }
+  .flip-card{aspect-ratio:1/1; perspective:800px; cursor:pointer;}
+  .flip-inner{
+    position:relative; width:100%; height:100%; transition:transform .5s;
+    transform-style:preserve-3d;
+  }
+  .flip-card.flipped .flip-inner{transform:rotateY(180deg);}
+  .flip-front, .flip-back{
+    position:absolute; inset:0; backface-visibility:hidden;
+    border-radius:16px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:8px; box-shadow:0 6px 14px rgba(185,136,102,0.18);
+  }
+  .flip-front{background:var(--bunny); border:2px dashed var(--rose);}
+  .flip-front .num{font-family:'Fredoka',sans-serif; font-weight:600; color:var(--rose-deep); font-size:14px;}
+  .flip-front .paw{font-size:22px; margin-bottom:4px;}
+  .flip-back{
+    background:linear-gradient(135deg, var(--rose-deep), var(--rose)); color:white;
+    transform:rotateY(180deg); font-size:12px; line-height:1.35; font-family:'Fredoka',sans-serif; font-weight:500;
+  }
+ 
   /* ---------- letter ---------- */
   .envelope{
     width:min(320px,80vw); aspect-ratio:3/2; margin:0 auto; cursor:pointer;
     background:linear-gradient(135deg, var(--rose), var(--rose-deep));
-    border-radius:12px; position:relative; box-shadow:0 10px 24px rgba(217,59,101,0.25);
+    border-radius:14px; position:relative; box-shadow:0 10px 24px rgba(185,136,102,0.3);
     display:flex; align-items:center; justify-content:center; color:white;
     font-family:'Fredoka',sans-serif; font-size:15px; transition:transform .2s;
   }
   .envelope:hover, .envelope:focus-visible{transform:scale(1.03);}
   .envelope::before{
     content:""; position:absolute; top:0; left:0; right:0; height:50%;
-    background:linear-gradient(135deg, rgba(255,255,255,0.25), transparent);
+    background:linear-gradient(135deg, rgba(255,255,255,0.28), transparent);
     clip-path:polygon(0 0, 50% 60%, 100% 0);
   }
   .letter-card{
-    display:none; background:white; border-radius:18px; padding:26px 22px; margin-top:22px;
-    text-align:left; box-shadow:0 10px 24px rgba(217,59,101,0.15);
-    font-family:'Caveat', cursive; font-size:20px; line-height:1.5; color:var(--plum);
+    display:none; background:var(--bunny); border-radius:20px; padding:28px 24px; margin-top:22px;
+    text-align:left; box-shadow:0 10px 24px rgba(185,136,102,0.2); border:2px solid var(--sage);
+    font-family:'Caveat', cursive; font-size:21px; line-height:1.5; color:var(--plum);
   }
   .letter-card.open{display:block;}
   .letter-card .signoff{margin-top:14px; font-weight:700; color:var(--rose-deep);}
-
+ 
   /* ---------- gallery ---------- */
-  .polaroid-grid{
-    display:flex; flex-wrap:wrap; gap:18px; justify-content:center;
-  }
-  .polaroid{
-    background:white; padding:10px 10px 26px; width:130px; border-radius:4px;
-    box-shadow:0 8px 16px rgba(0,0,0,0.12);
-  }
+  .polaroid-grid{display:flex; flex-wrap:wrap; gap:18px; justify-content:center;}
+  .polaroid{background:var(--bunny); padding:10px 10px 26px; width:130px; border-radius:6px; box-shadow:0 8px 16px rgba(0,0,0,0.12);}
   .polaroid:nth-child(odd){transform:rotate(-4deg);}
   .polaroid:nth-child(even){transform:rotate(3deg);}
   .photo-placeholder{
-    width:100%; aspect-ratio:1/1; background:linear-gradient(135deg, var(--lavender), var(--blush));
+    width:100%; aspect-ratio:1/1; background:linear-gradient(135deg, var(--sage), var(--blush));
     display:flex; align-items:center; justify-content:center; font-size:28px; border-radius:2px;
   }
-  .polaroid .caption{
-    font-family:'Caveat', cursive; font-size:15px; text-align:center; margin-top:8px; color:var(--plum);
-  }
-
+  .polaroid .caption{font-family:'Caveat', cursive; font-size:15px; text-align:center; margin-top:8px; color:var(--plum);}
+ 
   /* ---------- surprise button ---------- */
-  .surprise-wrap{text-align:center; padding:20px 24px 60px;}
+  .surprise-wrap{text-align:center; padding:20px 24px 50px;}
   .surprise-btn{
     font-family:'Fredoka', sans-serif; font-size:16px; font-weight:600;
     background:var(--rose-deep); color:white; border:none; padding:14px 28px;
-    border-radius:999px; cursor:pointer; box-shadow:0 8px 20px rgba(217,59,101,0.3);
+    border-radius:999px; cursor:pointer; box-shadow:0 8px 20px rgba(185,136,102,0.35);
     transition:transform .15s;
   }
   .surprise-btn:hover, .surprise-btn:focus-visible{transform:translateY(-2px);}
-
+ 
   footer{
-    text-align:center; padding:30px 24px 50px; font-family:'Caveat', cursive; font-size:20px;
+    text-align:center; padding:10px 24px 60px; font-family:'Caveat', cursive; font-size:20px;
     color:var(--rose-deep); position:relative; z-index:1;
   }
-
-  .confetti-piece{
-    position:fixed; top:-10px; width:8px; height:14px; z-index:50; pointer-events:none;
-    animation:confettiFall linear forwards;
-  }
-  @keyframes confettiFall{
-    to{transform:translateY(105vh) rotate(540deg); opacity:0.2;}
-  }
-
+  .footer-mascot{width:80px; height:auto; margin:0 auto 6px;}
+ 
+  .confetti-piece{position:fixed; top:-10px; width:8px; height:14px; z-index:50; pointer-events:none; animation:confettiFall linear forwards;}
+  @keyframes confettiFall{ to{transform:translateY(105vh) rotate(540deg); opacity:0.2;} }
+ 
   /* ---------- lock screen ---------- */
   .lock-screen{
     position:fixed; inset:0; z-index:100;
     display:flex; align-items:center; justify-content:center;
-    background:linear-gradient(180deg, var(--cream) 0%, var(--blush) 50%, var(--lavender) 100%);
+    background:linear-gradient(180deg, var(--cream) 0%, var(--blush) 50%, var(--sage) 100%);
     padding:24px;
   }
   .lock-card{
-    background:white; border-radius:24px; padding:36px 28px; max-width:320px; width:100%;
-    text-align:center; box-shadow:0 12px 30px rgba(217,59,101,0.2);
+    background:var(--bunny); border-radius:26px; padding:30px 28px 34px; max-width:320px; width:100%;
+    text-align:center; box-shadow:0 12px 30px rgba(185,136,102,0.28); border:2px solid var(--sage);
   }
-  .lock-card .lock-icon{font-size:38px; margin-bottom:8px;}
+  .lock-mascot{width:110px; height:auto; margin:0 auto 6px;}
   .lock-card h2{font-size:20px; color:var(--rose-deep); margin-bottom:6px;}
   .lock-card p{font-size:14px; opacity:0.75; margin-bottom:18px;}
   .lock-card input{
@@ -267,25 +272,60 @@
     25%{transform:translateX(-8px);}
     75%{transform:translateX(8px);}
   }
-
-  a:focus-visible, button:focus-visible, .envelope:focus-visible{
+ 
+  a:focus-visible, button:focus-visible, .envelope:focus-visible, .flip-card:focus-visible{
     outline:3px solid var(--rose-deep); outline-offset:3px;
   }
-
+ 
   @media (prefers-reduced-motion: reduce){
     .fh, .confetti-piece{animation:none !important; display:none;}
     .shake{animation:none !important;}
+    .flip-inner{transition:none;}
     html{scroll-behavior:auto;}
   }
 </style>
 </head>
 <body>
-
+ 
+<!-- reusable bear + bunny mascot, drawn as original artwork (not a reproduction of any existing comic) -->
+<svg class="mascot-defs" aria-hidden="true">
+  <symbol id="mascotDuo" viewBox="0 0 240 170">
+    <ellipse cx="68" cy="140" rx="46" ry="33" fill="var(--cocoa)"/>
+    <ellipse cx="68" cy="142" rx="23" ry="18" fill="var(--cocoa-light)"/>
+    <circle cx="40" cy="46" r="15" fill="var(--cocoa)"/>
+    <circle cx="40" cy="47" r="7" fill="var(--cocoa-light)"/>
+    <circle cx="96" cy="46" r="15" fill="var(--cocoa)"/>
+    <circle cx="96" cy="47" r="7" fill="var(--cocoa-light)"/>
+    <circle cx="68" cy="78" r="40" fill="var(--cocoa)"/>
+    <ellipse cx="68" cy="93" rx="19" ry="15" fill="var(--cocoa-light)"/>
+    <ellipse cx="68" cy="90" rx="5.5" ry="4.5" fill="var(--plum)"/>
+    <circle cx="55" cy="72" r="3.6" fill="var(--plum)"/>
+    <circle cx="81" cy="72" r="3.6" fill="var(--plum)"/>
+    <ellipse cx="45" cy="86" rx="8" ry="5" fill="var(--blush)" opacity="0.85"/>
+    <ellipse cx="91" cy="86" rx="8" ry="5" fill="var(--blush)" opacity="0.85"/>
+ 
+    <ellipse cx="168" cy="140" rx="42" ry="31" fill="var(--bunny)"/>
+    <ellipse cx="168" cy="141" rx="19" ry="15" fill="var(--blush)" opacity="0.55"/>
+    <ellipse cx="153" cy="32" rx="9" ry="30" fill="var(--bunny)" transform="rotate(-14 153 32)"/>
+    <ellipse cx="153" cy="34" rx="4" ry="21" fill="var(--blush)" transform="rotate(-14 153 34)"/>
+    <ellipse cx="185" cy="32" rx="9" ry="30" fill="var(--bunny)" transform="rotate(14 185 32)"/>
+    <ellipse cx="185" cy="34" rx="4" ry="21" fill="var(--blush)" transform="rotate(14 185 34)"/>
+    <circle cx="168" cy="80" r="36" fill="var(--bunny)"/>
+    <circle cx="156" cy="76" r="3.2" fill="var(--plum)"/>
+    <circle cx="180" cy="76" r="3.2" fill="var(--plum)"/>
+    <ellipse cx="168" cy="87" rx="3.2" ry="2.4" fill="var(--rose-deep)"/>
+    <ellipse cx="148" cy="90" rx="7" ry="4.5" fill="var(--blush)" opacity="0.85"/>
+    <ellipse cx="188" cy="90" rx="7" ry="4.5" fill="var(--blush)" opacity="0.85"/>
+ 
+    <path d="M118 108 c-7-9-23-8-23 5 c0 12 23 25 23 25 s23-13 23-25 c0-13-16-14-23-5z" fill="var(--rose-deep)"/>
+  </symbol>
+</svg>
+ 
 <div class="floating-hearts" id="floatingHearts"></div>
-
+ 
 <div class="lock-screen" id="lockScreen">
   <div class="lock-card" id="lockCard">
-    <div class="lock-icon">🔒</div>
+    <svg class="mascot lock-mascot" viewBox="0 0 240 170"><use href="#mascotDuo"/></svg>
     <h2>A little secret first...</h2>
     <p>Enter the password to open your surprise 💗</p>
     <input type="password" id="pwInput" placeholder="Password" autocomplete="off">
@@ -293,17 +333,18 @@
     <div class="hint-msg" id="hintMsg"></div>
   </div>
 </div>
-
+ 
 <div id="mainContent" style="display:none;">
-
+ 
 <nav class="dot-nav" aria-label="Section navigation">
   <a href="#hero" title="Home">🏠</a>
   <a href="#story" title="Our Story">📖</a>
   <a href="#songs" title="Our Songs">🎵</a>
+  <a href="#reasons" title="12 Reasons Why">🧸</a>
   <a href="#letter" title="Letter">💌</a>
   <a href="#gallery" title="Gallery">📷</a>
 </nav>
-
+ 
 <section id="hero" class="hero">
   <div class="stamp">
     <span>OFFICIAL</span>
@@ -314,7 +355,7 @@
   <h1 class="script-name">Nandini</h1>
   <p class="tagline">forever unofficial on paper, forever official in my heart 💍</p>
   <p class="hero-sub">Happy Birthday, my love</p>
-
+ 
   <div class="countdown" id="countdown" aria-live="polite">
     <div class="cbox"><div class="num" id="cd-days">0</div><div class="lbl">days</div></div>
     <div class="cbox"><div class="num" id="cd-hours">0</div><div class="lbl">hrs</div></div>
@@ -322,37 +363,43 @@
     <div class="cbox"><div class="num" id="cd-secs">0</div><div class="lbl">sec</div></div>
   </div>
   <div class="birthday-live" id="birthdayLive" style="display:none;">It's here! Happy Birthday 🎉</div>
+ 
+  <svg class="mascot hero-mascot" viewBox="0 0 240 170"><use href="#mascotDuo"/></svg>
 </section>
-
+ 
 <section id="story">
+  <div class="tape"></div>
   <h2>Our Story So Far</h2>
+  <p class="section-sub">every little chapter, kept safe</p>
   <div class="timeline" id="timeline">
     <div class="timeline-item">
       <div class="date">26 November 2024</div>
-      <p>You fell first — kept a story with our picture, "Yellow" by Coldplay playing underneath. I just didn't know it yet.</p>
+      <p>Long before I understood what was happening, you already knew. You kept a quiet little Instagram story tucked away — just our picture, with "Yellow" by Coldplay humming underneath it, like you were bookmarking a feeling before you even said it out loud. I was oblivious, wrapped up in some ordinary version of that day, while you were somewhere else entirely, already falling. There's something achingly sweet about that — that you loved me before I even had the sense to notice. Looking back now, I think that story was the very first sentence of a love story I didn't know I'd already stepped into. Some part of me wishes I could go back and tell that version of myself: pay attention, this is the beginning of everything.</p>
     </div>
     <div class="timeline-item">
       <div class="date">5 April 2025</div>
-      <p>Concert night. Loud crowd, brighter lights — and somewhere in there, "Raabta" by Arijit Singh became ours.</p>
+      <p>Concert night. The kind of loud, electric night that blurs into flashing lights and a thousand strangers singing the same words. And somewhere in the middle of all that noise, you and I found this one hushed pocket of stillness that was only ours. When "Raabta" played, something shifted — the crowd seemed to fade, the noise dimmed, and there was just Arijit Singh's voice threading through the small space between us. I don't remember exactly when it happened, only that by the time the song ended, it had already claimed itself as ours, the way songs sometimes do without asking permission. Every time it plays now, I'm thrown right back into those lights and that crowd, and the exact way it felt to realize I wanted you beside me at every loud, beautiful night for the rest of my life.</p>
     </div>
     <div class="timeline-item">
       <div class="date">12 October 2025</div>
-      <p>You said it first — three words that changed everything.</p>
+      <p>Three words. That's all it took to rearrange everything I thought I knew about how careful I was supposed to be with my heart. You said it first — quietly, bravely, like you'd been carrying it around for a while and finally set it down in front of me. I remember the exact stillness of that moment, how the whole world seemed to pause just long enough for it to sink in. I think about how much courage that takes, to hand someone your feelings before you know for certain they'll be caught. You caught me completely off guard, and in doing so, you caught me — full stop. That day didn't just change the way I saw us; it changed the way I understood love itself, as something worth being brave for.</p>
     </div>
     <div class="timeline-item">
       <div class="date">18 November 2025</div>
-      <p>I finally found the courage to say it back.</p>
+      <p>It took me a little longer to find the words — not because I felt any less, but because saying them out loud made everything feel so real. So when I finally said it back, it wasn't sudden or impulsive, it was the truest, most deliberate thing I'd ever told you. I'd spent weeks turning the words over in my head, testing whether they were big enough to hold what I actually felt, and I don't think they ever fully were. But I said them anyway, because you deserved to hear them, and because I was done being careful with something that already belonged to you. I still remember the way your face changed when I said it, like a held breath finally let go. From that night on, "I love you" stopped being three words and started being a promise I intend to keep saying, in a hundred different ways, for as long as you'll let me.</p>
     </div>
     <div class="timeline-item">
       <div class="date">5 January 2026</div>
-      <p>Our first kiss.</p>
+      <p>Some moments announce themselves loudly, and some just arrive quietly, exactly when they're supposed to. Ours was the second kind — no grand buildup, no perfectly staged scene, just the two of us, finally close enough that neither of us was pretending we didn't want it. I remember being nervous in a way I hadn't been in years, and I remember that nervousness disappearing the second it actually happened. It felt less like a first and more like something we'd both been quietly waiting to arrive at, patient underneath all the timing. Every kiss since has carried a little bit of that same feeling — new every time, but rooted in that one quiet moment we finally let ourselves have. 5th January will always be the day a maybe turned into an absolutely.</p>
     </div>
     <div class="timeline-item more">& many more chapters to come...</div>
   </div>
 </section>
-
+ 
 <section id="songs">
+  <div class="tape"></div>
   <h2>Our Songs</h2>
+  <p class="section-sub">the soundtrack to us</p>
   <div class="song-cards">
     <div class="song-card yellow">
       <div class="title">Yellow</div>
@@ -368,8 +415,53 @@
     </div>
   </div>
 </section>
-
+ 
+<section id="reasons">
+  <div class="tape"></div>
+  <h2>12 Reasons Why I Love You ❤️</h2>
+  <p class="section-sub">tap a card to flip it</p>
+  <div class="reasons-grid" id="reasonsGrid">
+    <div class="flip-card" tabindex="0" role="button" aria-label="Reason 1">
+      <div class="flip-inner"><div class="flip-front"><div class="paw">🐾</div><div class="num">#1</div></div><div class="flip-back">Your beautiful smile.</div></div>
+    </div>
+    <div class="flip-card" tabindex="0" role="button" aria-label="Reason 2">
+      <div class="flip-inner"><div class="flip-front"><div class="paw">🐾</div><div class="num">#2</div></div><div class="flip-back">Your caring heart.</div></div>
+    </div>
+    <div class="flip-card" tabindex="0" role="button" aria-label="Reason 3">
+      <div class="flip-inner"><div class="flip-front"><div class="paw">🐾</div><div class="num">#3</div></div><div class="flip-back">You understand me.</div></div>
+    </div>
+    <div class="flip-card" tabindex="0" role="button" aria-label="Reason 4">
+      <div class="flip-inner"><div class="flip-front"><div class="paw">🐾</div><div class="num">#4</div></div><div class="flip-back">You make me laugh.</div></div>
+    </div>
+    <div class="flip-card" tabindex="0" role="button" aria-label="Reason 5">
+      <div class="flip-inner"><div class="flip-front"><div class="paw">🐾</div><div class="num">#5</div></div><div class="flip-back">You always support me.</div></div>
+    </div>
+    <div class="flip-card" tabindex="0" role="button" aria-label="Reason 6">
+      <div class="flip-inner"><div class="flip-front"><div class="paw">🐾</div><div class="num">#6</div></div><div class="flip-back">Your adorable personality.</div></div>
+    </div>
+    <div class="flip-card" tabindex="0" role="button" aria-label="Reason 7">
+      <div class="flip-inner"><div class="flip-front"><div class="paw">🐾</div><div class="num">#7</div></div><div class="flip-back">You make life brighter.</div></div>
+    </div>
+    <div class="flip-card" tabindex="0" role="button" aria-label="Reason 8">
+      <div class="flip-inner"><div class="flip-front"><div class="paw">🐾</div><div class="num">#8</div></div><div class="flip-back">You love Barcelona because of me. ❤️💙</div></div>
+    </div>
+    <div class="flip-card" tabindex="0" role="button" aria-label="Reason 9">
+      <div class="flip-inner"><div class="flip-front"><div class="paw">🐾</div><div class="num">#9</div></div><div class="flip-back">Our unforgettable memories.</div></div>
+    </div>
+    <div class="flip-card" tabindex="0" role="button" aria-label="Reason 10">
+      <div class="flip-inner"><div class="flip-front"><div class="paw">🐾</div><div class="num">#10</div></div><div class="flip-back">You inspire me daily.</div></div>
+    </div>
+    <div class="flip-card" tabindex="0" role="button" aria-label="Reason 11">
+      <div class="flip-inner"><div class="flip-front"><div class="paw">🐾</div><div class="num">#11</div></div><div class="flip-back">You feel like home.</div></div>
+    </div>
+    <div class="flip-card" tabindex="0" role="button" aria-label="Reason 12">
+      <div class="flip-inner"><div class="flip-front"><div class="paw">🐾</div><div class="num">#12</div></div><div class="flip-back">Infinite reasons to love you more. ♾️❤️</div></div>
+    </div>
+  </div>
+</section>
+ 
 <section id="letter">
+  <div class="tape"></div>
   <h2>A Little Note</h2>
   <div class="envelope" id="envelope" role="button" tabindex="0" aria-expanded="false" aria-controls="letterCard">
     💌 Tap to open
@@ -384,9 +476,11 @@
     <p class="signoff">– Your Name</p>
   </div>
 </section>
-
+ 
 <section id="gallery">
+  <div class="tape"></div>
   <h2>Moments I Love</h2>
+  <p class="section-sub">swap these for your real photos</p>
   <div class="polaroid-grid">
     <div class="polaroid"><div class="photo-placeholder">📷</div><p class="caption">that story, 26 Nov</p></div>
     <div class="polaroid"><div class="photo-placeholder">🎤</div><p class="caption">concert night</p></div>
@@ -395,20 +489,23 @@
     <div class="polaroid"><div class="photo-placeholder">✨</div><p class="caption">more to come</p></div>
   </div>
 </section>
-
+ 
 <div class="surprise-wrap">
   <button class="surprise-btn" id="surpriseBtn">Tap for a surprise 🎉</button>
 </div>
-
-<footer>Made with all my love, for you 💗</footer>
-
+ 
+<footer>
+  <svg class="mascot footer-mascot" viewBox="0 0 240 170"><use href="#mascotDuo"/></svg>
+  Made with all my love, for you 💗
+</footer>
+ 
 </div>
-
+ 
 <script>
   // ---- password gate ----
   // CHANGE THIS to whatever password you want to use (not case-sensitive)
   const SITE_PASSWORD = "raabta";
-
+ 
   function checkPassword(){
     const input = document.getElementById('pwInput');
     const val = input.value.trim().toLowerCase();
@@ -425,12 +522,12 @@
   document.getElementById('pwInput').addEventListener('keydown', function(e){
     if(e.key === 'Enter'){ checkPassword(); }
   });
-
+ 
   // ---- floating ambient hearts ----
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!prefersReduced){
     const container = document.getElementById('floatingHearts');
-    const hearts = ['💗','💕','💛','✨'];
+    const hearts = ['💗','💕','✨','🧸'];
     for(let i=0;i<16;i++){
       const el = document.createElement('span');
       el.className='fh';
@@ -442,7 +539,7 @@
       container.appendChild(el);
     }
   }
-
+ 
   // ---- countdown to July 14 ----
   function getNextBirthday(){
     const now = new Date();
@@ -454,7 +551,7 @@
     return target;
   }
   const targetDate = getNextBirthday();
-
+ 
   function updateCountdown(){
     const now = new Date();
     const diff = targetDate - now;
@@ -475,7 +572,7 @@
   }
   updateCountdown();
   const timer = setInterval(updateCountdown, 1000);
-
+ 
   // ---- envelope open ----
   const envelope = document.getElementById('envelope');
   const letterCard = document.getElementById('letterCard');
@@ -488,11 +585,19 @@
   envelope.addEventListener('keydown', (e)=>{
     if(e.key==='Enter' || e.key===' '){ e.preventDefault(); toggleLetter(); }
   });
-
+ 
+  // ---- 12 reasons flip cards ----
+  document.querySelectorAll('.flip-card').forEach(card=>{
+    card.addEventListener('click', ()=> card.classList.toggle('flipped'));
+    card.addEventListener('keydown', (e)=>{
+      if(e.key==='Enter' || e.key===' '){ e.preventDefault(); card.classList.toggle('flipped'); }
+    });
+  });
+ 
   // ---- confetti burst ----
   document.getElementById('surpriseBtn').addEventListener('click', ()=>{
     if(prefersReduced) return;
-    const colors = ['#F0567F','#FFE9A8','#EBDBFF','#FFD9E8','#D93B65'];
+    const colors = ['#E15A79','#FFEEB8','#DCEAD6','#FFD9E3','#B98866'];
     for(let i=0;i<40;i++){
       const piece = document.createElement('div');
       piece.className='confetti-piece';
@@ -505,6 +610,7 @@
     }
   });
 </script>
-
+ 
 </body>
 </html>
+ 
