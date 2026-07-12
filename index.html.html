@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Nandini 💗</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<!--
+  HOW TO EDIT THIS PAGE (read me!)
+  1. LOVE LETTER: find id="letter-text" below and replace the placeholder paragraph with your own words.
+  2. PHOTOS: find class="photo-placeholder" — replace the emoji div's content with <img src="yourphoto.jpg" alt="..."> (put the image file in the same folder as this html file).
+  3. SONG LINKS: find class="song-link" — change href="#" to your Spotify/YouTube link for Yellow and Raabta.
+  4. MORE MEMORIES: copy a ".timeline-item" block inside id="timeline" and edit the date/text to add new milestones.
+  5. SIGN-OFF: find "Your Name" near the bottom and replace with your name.
+-->
+
+<style>
+  :root{
+    --cream:#FFF8F0;
+    --blush:#FFD9E8;
+    --butter:#FFE9A8;
+    --lavender:#EBDBFF;
+    --rose:#F0567F;
+    --rose-deep:#D93B65;
+    --plum:#5B3A4B;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Quicksand', sans-serif;
+    background:linear-gradient(180deg, var(--cream) 0%, var(--blush) 35%, var(--lavender) 70%, var(--cream) 100%);
+    color:var(--plum);
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  h1,h2{font-family:'Fredoka', sans-serif; font-weight:600;}
+
+  a{color:inherit;}
+
+  section{
+    max-width:640px;
+    margin:0 auto;
+    padding:80px 24px 40px;
+    text-align:center;
+    position:relative;
+  }
+
+  /* ---------- floating ambient hearts ---------- */
+  .floating-hearts{
+    position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden;
+  }
+  .fh{
+    position:absolute; bottom:-40px; font-size:20px; opacity:0.55;
+    animation:floatUp linear infinite;
+  }
+  @keyframes floatUp{
+    0%{transform:translateY(0) rotate(0deg); opacity:0;}
+    10%{opacity:0.6;}
+    100%{transform:translateY(-110vh) rotate(360deg); opacity:0;}
+  }
+
+  /* ---------- nav ---------- */
+  .dot-nav{
+    position:fixed; top:14px; left:50%; transform:translateX(-50%);
+    display:flex; gap:10px; z-index:10;
+    background:rgba(255,255,255,0.6); backdrop-filter:blur(6px);
+    padding:8px 14px; border-radius:999px; box-shadow:0 4px 16px rgba(217,59,101,0.12);
+  }
+  .dot-nav a{
+    font-size:18px; text-decoration:none; opacity:0.7; transition:transform .2s, opacity .2s;
+  }
+  .dot-nav a:hover, .dot-nav a:focus-visible{opacity:1; transform:scale(1.25);}
+
+  /* ---------- hero ---------- */
+  .hero{padding-top:110px; min-height:92vh; display:flex; flex-direction:column; align-items:center; justify-content:center;}
+
+  .stamp{
+    width:132px; height:132px; border-radius:50%;
+    border:3px dashed var(--rose-deep);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    color:var(--rose-deep); font-family:'Fredoka', sans-serif; font-weight:600;
+    transform:rotate(-9deg); mix-blend-mode:multiply;
+    margin-bottom:22px; font-size:11px; letter-spacing:1px; line-height:1.4;
+    background:rgba(255,255,255,0.3);
+  }
+  .stamp .heart{font-size:20px; margin:2px 0;}
+  .stamp .est{font-size:9px; opacity:0.85;}
+
+  .script-name{
+    font-family:'Caveat', cursive; font-weight:700;
+    font-size:clamp(48px, 14vw, 84px);
+    color:var(--rose-deep);
+    line-height:1;
+  }
+
+  .tagline{
+    margin-top:10px; font-size:15px; max-width:340px; opacity:0.85;
+  }
+
+  .hero-sub{
+    margin-top:26px; font-family:'Fredoka', sans-serif; font-size:clamp(20px,5vw,28px);
+    color:var(--plum);
+  }
+
+  .countdown{
+    display:flex; gap:12px; margin-top:30px;
+  }
+  .cbox{
+    background:white; border-radius:16px; padding:14px 10px; min-width:64px;
+    box-shadow:0 6px 18px rgba(217,59,101,0.15);
+  }
+  .cbox .num{font-family:'Fredoka',sans-serif; font-size:26px; color:var(--rose-deep); font-weight:600;}
+  .cbox .lbl{font-size:11px; text-transform:uppercase; letter-spacing:0.6px; opacity:0.7;}
+
+  .birthday-live{
+    margin-top:28px; font-family:'Caveat', cursive; font-size:32px; color:var(--rose-deep);
+  }
+
+  /* ---------- headings ---------- */
+  section h2{
+    font-size:clamp(24px,6vw,32px); margin-bottom:34px; color:var(--rose-deep);
+  }
+
+  /* ---------- timeline ---------- */
+  .timeline{
+    position:relative; text-align:left;
+    padding-left:28px;
+  }
+  .timeline::before{
+    content:""; position:absolute; left:9px; top:6px; bottom:6px; width:2px;
+    background:repeating-linear-gradient(to bottom, var(--rose) 0 8px, transparent 8px 16px);
+  }
+  .timeline-item{
+    position:relative; margin-bottom:26px; background:white; border-radius:16px;
+    padding:16px 18px; box-shadow:0 6px 16px rgba(217,59,101,0.10);
+  }
+  .timeline-item::before{
+    content:"♥"; position:absolute; left:-28px; top:16px; color:var(--rose-deep); font-size:14px;
+  }
+  .timeline-item .date{
+    font-family:'Fredoka', sans-serif; font-size:13px; color:var(--rose-deep); font-weight:600;
+    letter-spacing:0.3px;
+  }
+  .timeline-item p{margin-top:6px; font-size:15px; line-height:1.45;}
+  .timeline-item.more{
+    border:2px dashed var(--rose); background:transparent; box-shadow:none;
+    text-align:center; font-family:'Caveat', cursive; font-size:22px; color:var(--rose-deep);
+  }
+  .timeline-item.more::before{content:"";}
+
+  /* ---------- songs ---------- */
+  .song-cards{display:flex; flex-direction:column; gap:16px;}
+  .song-card{
+    border-radius:18px; padding:20px; text-align:left; position:relative; overflow:hidden;
+    box-shadow:0 6px 18px rgba(217,59,101,0.12);
+  }
+  .song-card.yellow{background:linear-gradient(135deg, var(--butter), #fff);}
+  .song-card.raabta{background:linear-gradient(135deg, var(--blush), #fff);}
+  .song-card .title{font-family:'Fredoka',sans-serif; font-size:19px; font-weight:600;}
+  .song-card .artist{font-size:13px; opacity:0.75; margin-bottom:8px;}
+  .song-card .note{font-size:14px; margin-bottom:12px;}
+  .song-link{
+    display:inline-block; font-size:13px; font-weight:600; text-decoration:none;
+    background:var(--rose-deep); color:white; padding:7px 16px; border-radius:999px;
+  }
+
+  /* ---------- letter ---------- */
+  .envelope{
+    width:min(320px,80vw); aspect-ratio:3/2; margin:0 auto; cursor:pointer;
+    background:linear-gradient(135deg, var(--rose), var(--rose-deep));
+    border-radius:12px; position:relative; box-shadow:0 10px 24px rgba(217,59,101,0.25);
+    display:flex; align-items:center; justify-content:center; color:white;
+    font-family:'Fredoka',sans-serif; font-size:15px; transition:transform .2s;
+  }
+  .envelope:hover, .envelope:focus-visible{transform:scale(1.03);}
+  .envelope::before{
+    content:""; position:absolute; top:0; left:0; right:0; height:50%;
+    background:linear-gradient(135deg, rgba(255,255,255,0.25), transparent);
+    clip-path:polygon(0 0, 50% 60%, 100% 0);
+  }
+  .letter-card{
+    display:none; background:white; border-radius:18px; padding:26px 22px; margin-top:22px;
+    text-align:left; box-shadow:0 10px 24px rgba(217,59,101,0.15);
+    font-family:'Caveat', cursive; font-size:20px; line-height:1.5; color:var(--plum);
+  }
+  .letter-card.open{display:block;}
+  .letter-card .signoff{margin-top:14px; font-weight:700; color:var(--rose-deep);}
+
+  /* ---------- gallery ---------- */
+  .polaroid-grid{
+    display:flex; flex-wrap:wrap; gap:18px; justify-content:center;
+  }
+  .polaroid{
+    background:white; padding:10px 10px 26px; width:130px; border-radius:4px;
+    box-shadow:0 8px 16px rgba(0,0,0,0.12);
+  }
+  .polaroid:nth-child(odd){transform:rotate(-4deg);}
+  .polaroid:nth-child(even){transform:rotate(3deg);}
+  .photo-placeholder{
+    width:100%; aspect-ratio:1/1; background:linear-gradient(135deg, var(--lavender), var(--blush));
+    display:flex; align-items:center; justify-content:center; font-size:28px; border-radius:2px;
+  }
+  .polaroid .caption{
+    font-family:'Caveat', cursive; font-size:15px; text-align:center; margin-top:8px; color:var(--plum);
+  }
+
+  /* ---------- surprise button ---------- */
+  .surprise-wrap{text-align:center; padding:20px 24px 60px;}
+  .surprise-btn{
+    font-family:'Fredoka', sans-serif; font-size:16px; font-weight:600;
+    background:var(--rose-deep); color:white; border:none; padding:14px 28px;
+    border-radius:999px; cursor:pointer; box-shadow:0 8px 20px rgba(217,59,101,0.3);
+    transition:transform .15s;
+  }
+  .surprise-btn:hover, .surprise-btn:focus-visible{transform:translateY(-2px);}
+
+  footer{
+    text-align:center; padding:30px 24px 50px; font-family:'Caveat', cursive; font-size:20px;
+    color:var(--rose-deep); position:relative; z-index:1;
+  }
+
+  .confetti-piece{
+    position:fixed; top:-10px; width:8px; height:14px; z-index:50; pointer-events:none;
+    animation:confettiFall linear forwards;
+  }
+  @keyframes confettiFall{
+    to{transform:translateY(105vh) rotate(540deg); opacity:0.2;}
+  }
+
+  /* ---------- lock screen ---------- */
+  .lock-screen{
+    position:fixed; inset:0; z-index:100;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(180deg, var(--cream) 0%, var(--blush) 50%, var(--lavender) 100%);
+    padding:24px;
+  }
+  .lock-card{
+    background:white; border-radius:24px; padding:36px 28px; max-width:320px; width:100%;
+    text-align:center; box-shadow:0 12px 30px rgba(217,59,101,0.2);
+  }
+  .lock-card .lock-icon{font-size:38px; margin-bottom:8px;}
+  .lock-card h2{font-size:20px; color:var(--rose-deep); margin-bottom:6px;}
+  .lock-card p{font-size:14px; opacity:0.75; margin-bottom:18px;}
+  .lock-card input{
+    width:100%; padding:12px 14px; border-radius:12px; border:2px solid var(--blush);
+    font-family:'Quicksand', sans-serif; font-size:15px; text-align:center; margin-bottom:14px;
+    outline:none;
+  }
+  .lock-card input:focus{border-color:var(--rose-deep);}
+  .lock-card button{
+    font-family:'Fredoka', sans-serif; font-weight:600; font-size:15px;
+    background:var(--rose-deep); color:white; border:none; padding:12px 24px;
+    border-radius:999px; cursor:pointer; width:100%;
+  }
+  .lock-card .hint-msg{font-size:13px; color:var(--rose-deep); margin-top:12px; min-height:18px;}
+  .shake{animation:shake 0.4s;}
+  @keyframes shake{
+    0%,100%{transform:translateX(0);}
+    25%{transform:translateX(-8px);}
+    75%{transform:translateX(8px);}
+  }
+
+  a:focus-visible, button:focus-visible, .envelope:focus-visible{
+    outline:3px solid var(--rose-deep); outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .fh, .confetti-piece{animation:none !important; display:none;}
+    .shake{animation:none !important;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="floating-hearts" id="floatingHearts"></div>
+
+<div class="lock-screen" id="lockScreen">
+  <div class="lock-card" id="lockCard">
+    <div class="lock-icon">🔒</div>
+    <h2>A little secret first...</h2>
+    <p>Enter the password to open your surprise 💗</p>
+    <input type="password" id="pwInput" placeholder="Password" autocomplete="off">
+    <button onclick="checkPassword()">Unlock 💗</button>
+    <div class="hint-msg" id="hintMsg"></div>
+  </div>
+</div>
+
+<div id="mainContent" style="display:none;">
+
+<nav class="dot-nav" aria-label="Section navigation">
+  <a href="#hero" title="Home">🏠</a>
+  <a href="#story" title="Our Story">📖</a>
+  <a href="#songs" title="Our Songs">🎵</a>
+  <a href="#letter" title="Letter">💌</a>
+  <a href="#gallery" title="Gallery">📷</a>
+</nav>
+
+<section id="hero" class="hero">
+  <div class="stamp">
+    <span>OFFICIAL</span>
+    <span class="heart">♥</span>
+    <span>Maaji Illegal Baiko</span>
+    <span class="est">est. 26.11.2024</span>
+  </div>
+  <h1 class="script-name">Nandini</h1>
+  <p class="tagline">forever unofficial on paper, forever official in my heart 💍</p>
+  <p class="hero-sub">Happy Birthday, my love</p>
+
+  <div class="countdown" id="countdown" aria-live="polite">
+    <div class="cbox"><div class="num" id="cd-days">0</div><div class="lbl">days</div></div>
+    <div class="cbox"><div class="num" id="cd-hours">0</div><div class="lbl">hrs</div></div>
+    <div class="cbox"><div class="num" id="cd-mins">0</div><div class="lbl">min</div></div>
+    <div class="cbox"><div class="num" id="cd-secs">0</div><div class="lbl">sec</div></div>
+  </div>
+  <div class="birthday-live" id="birthdayLive" style="display:none;">It's here! Happy Birthday 🎉</div>
+</section>
+
+<section id="story">
+  <h2>Our Story So Far</h2>
+  <div class="timeline" id="timeline">
+    <div class="timeline-item">
+      <div class="date">26 November 2024</div>
+      <p>You fell first — kept a story with our picture, "Yellow" by Coldplay playing underneath. I just didn't know it yet.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">5 April 2025</div>
+      <p>Concert night. Loud crowd, brighter lights — and somewhere in there, "Raabta" by Arijit Singh became ours.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">12 October 2025</div>
+      <p>You said it first — three words that changed everything.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">18 November 2025</div>
+      <p>I finally found the courage to say it back.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="date">5 January 2026</div>
+      <p>Our first kiss.</p>
+    </div>
+    <div class="timeline-item more">& many more chapters to come...</div>
+  </div>
+</section>
+
+<section id="songs">
+  <h2>Our Songs</h2>
+  <div class="song-cards">
+    <div class="song-card yellow">
+      <div class="title">Yellow</div>
+      <div class="artist">Coldplay</div>
+      <p class="note">Playing quietly the day you fell for me first, 26 Nov 2024.</p>
+      <a class="song-link" href="#">▶ Play on Spotify</a>
+    </div>
+    <div class="song-card raabta">
+      <div class="title">Raabta</div>
+      <div class="artist">Arijit Singh</div>
+      <p class="note">Became "our song" on concert night, 5 April 2025.</p>
+      <a class="song-link" href="#">▶ Play on Spotify</a>
+    </div>
+  </div>
+</section>
+
+<section id="letter">
+  <h2>A Little Note</h2>
+  <div class="envelope" id="envelope" role="button" tabindex="0" aria-expanded="false" aria-controls="letterCard">
+    💌 Tap to open
+  </div>
+  <div class="letter-card" id="letterCard">
+    <p id="letter-text">
+      To my Nandini — from "Yellow" playing quietly in the background to "Raabta" becoming ours on that concert
+      night, every song since has sounded a little like you. I still remember exactly how it felt when you said
+      those three words first, and when I finally found the courage to say them back. Happy birthday to the girl
+      who made "illegal baiko" the sweetest title I know. Here's to every chapter still unwritten.
+    </p>
+    <p class="signoff">– Your Name</p>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2>Moments I Love</h2>
+  <div class="polaroid-grid">
+    <div class="polaroid"><div class="photo-placeholder">📷</div><p class="caption">that story, 26 Nov</p></div>
+    <div class="polaroid"><div class="photo-placeholder">🎤</div><p class="caption">concert night</p></div>
+    <div class="polaroid"><div class="photo-placeholder">💬</div><p class="caption">"I love you"</p></div>
+    <div class="polaroid"><div class="photo-placeholder">😘</div><p class="caption">first kiss</p></div>
+    <div class="polaroid"><div class="photo-placeholder">✨</div><p class="caption">more to come</p></div>
+  </div>
+</section>
+
+<div class="surprise-wrap">
+  <button class="surprise-btn" id="surpriseBtn">Tap for a surprise 🎉</button>
+</div>
+
+<footer>Made with all my love, for you 💗</footer>
+
+</div>
+
+<script>
+  // ---- password gate ----
+  // CHANGE THIS to whatever password you want to use (not case-sensitive)
+  const SITE_PASSWORD = "raabta";
+
+  function checkPassword(){
+    const input = document.getElementById('pwInput');
+    const val = input.value.trim().toLowerCase();
+    if(val === SITE_PASSWORD){
+      document.getElementById('lockScreen').style.display = 'none';
+      document.getElementById('mainContent').style.display = 'block';
+    } else {
+      const card = document.getElementById('lockCard');
+      card.classList.add('shake');
+      document.getElementById('hintMsg').textContent = 'Not quite — try again 💭';
+      setTimeout(()=>card.classList.remove('shake'), 400);
+    }
+  }
+  document.getElementById('pwInput').addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ checkPassword(); }
+  });
+
+  // ---- floating ambient hearts ----
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!prefersReduced){
+    const container = document.getElementById('floatingHearts');
+    const hearts = ['💗','💕','💛','✨'];
+    for(let i=0;i<16;i++){
+      const el = document.createElement('span');
+      el.className='fh';
+      el.textContent = hearts[Math.floor(Math.random()*hearts.length)];
+      el.style.left = Math.random()*100+'vw';
+      el.style.animationDuration = (10+Math.random()*10)+'s';
+      el.style.animationDelay = (Math.random()*10)+'s';
+      el.style.fontSize = (14+Math.random()*14)+'px';
+      container.appendChild(el);
+    }
+  }
+
+  // ---- countdown to July 14 ----
+  function getNextBirthday(){
+    const now = new Date();
+    let year = now.getFullYear();
+    let target = new Date(year, 6, 14, 0,0,0); // month is 0-indexed, 6 = July
+    if(target < now){
+      target = new Date(year+1, 6, 14, 0,0,0);
+    }
+    return target;
+  }
+  const targetDate = getNextBirthday();
+
+  function updateCountdown(){
+    const now = new Date();
+    const diff = targetDate - now;
+    if(diff <= 0){
+      document.getElementById('countdown').style.display='none';
+      document.getElementById('birthdayLive').style.display='block';
+      clearInterval(timer);
+      return;
+    }
+    const d = Math.floor(diff/(1000*60*60*24));
+    const h = Math.floor((diff/(1000*60*60))%24);
+    const m = Math.floor((diff/(1000*60))%60);
+    const s = Math.floor((diff/1000)%60);
+    document.getElementById('cd-days').textContent = d;
+    document.getElementById('cd-hours').textContent = h;
+    document.getElementById('cd-mins').textContent = m;
+    document.getElementById('cd-secs').textContent = s;
+  }
+  updateCountdown();
+  const timer = setInterval(updateCountdown, 1000);
+
+  // ---- envelope open ----
+  const envelope = document.getElementById('envelope');
+  const letterCard = document.getElementById('letterCard');
+  function toggleLetter(){
+    const isOpen = letterCard.classList.toggle('open');
+    envelope.setAttribute('aria-expanded', isOpen);
+    envelope.textContent = isOpen ? '💌 Tap to close' : '💌 Tap to open';
+  }
+  envelope.addEventListener('click', toggleLetter);
+  envelope.addEventListener('keydown', (e)=>{
+    if(e.key==='Enter' || e.key===' '){ e.preventDefault(); toggleLetter(); }
+  });
+
+  // ---- confetti burst ----
+  document.getElementById('surpriseBtn').addEventListener('click', ()=>{
+    if(prefersReduced) return;
+    const colors = ['#F0567F','#FFE9A8','#EBDBFF','#FFD9E8','#D93B65'];
+    for(let i=0;i<40;i++){
+      const piece = document.createElement('div');
+      piece.className='confetti-piece';
+      piece.style.left = Math.random()*100+'vw';
+      piece.style.background = colors[Math.floor(Math.random()*colors.length)];
+      piece.style.animationDuration = (2+Math.random()*1.5)+'s';
+      piece.style.borderRadius = Math.random()>0.5 ? '50%' : '2px';
+      document.body.appendChild(piece);
+      setTimeout(()=>piece.remove(), 3600);
+    }
+  });
+</script>
+
+</body>
+</html>
